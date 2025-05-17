@@ -1,0 +1,14 @@
+project: default
+source:
+  repoURL: https://github.com/morey-tech/argocd-example-apps
+  path: general/helm-guestbook
+  targetRevision: HEAD
+destination:
+  namespace: guestbook
+  name: in-cluster
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - createNamespace=true
